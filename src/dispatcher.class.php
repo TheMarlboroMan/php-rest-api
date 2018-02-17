@@ -47,11 +47,11 @@ class Dispatcher
 			}
 		}
 		catch(\Excepcion_consulta_mysql $e) {
-			do_log($e->getMessage()."\nTHAT WAS A MYSQL ERROR. THIS IS dispatcher FILE\n");
+			Log::log($e->getMessage()."\nTHAT WAS A MYSQL ERROR. THIS IS dispatcher FILE\n");
 			throw new \Exception(\Rest_api\Definitions::MESSAGE_DATABASE_ERROR, \Rest_api\Definitions::STATUS_CODE_INTERNAL_SERVER_ERROR);
 		}
 		catch(Api_exception $e)	{
-			do_log($e->get_log_info()."\nTHAT WAS A API EXCEPTION. THIS IS dispatcher FILE\n");
+			Log::log($e->get_log_info()."\nTHAT WAS A API EXCEPTION. THIS IS dispatcher FILE\n");
 			throw new \Exception($e->getMessage(), $e->getCode());
 		}
 		catch(\Exception $e) {
@@ -61,7 +61,7 @@ class Dispatcher
 			}
 
 			//This is the last line...
-			do_log($e->getMessage()." ".$e->getCode()."\nTHAT WAS A BASIC EXCEPTION. THIS IS dispatcher FILE\n");
+			Log::log($e->getMessage()." ".$e->getCode()."\nTHAT WAS A BASIC EXCEPTION. THIS IS dispatcher FILE\n");
 			throw new \Exception(\Rest_api\Definitions::MESSAGE_GENERIC_ERROR.$e->getMessage(), \Rest_api\Definitions::STATUS_CODE_INTERNAL_SERVER_ERROR);
 		}
 	}
