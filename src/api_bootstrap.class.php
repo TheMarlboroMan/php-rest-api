@@ -7,7 +7,7 @@ class Api_bootstrap {
 
 	public static function set_api_config($path) {
 
-		self::$api_config=new \Renoir_Engine\Ini_config($path);
+		self::$api_config=new \RET\Tools\Ini_config($path);
 	}
 
 	public static function get_api_config() {

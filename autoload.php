@@ -1,4 +1,5 @@
 <?php
+//TODO: Real autoload please, the one in renoir_engine works just fine :).
 require_once("src/definitions.class.php");
 require_once("src/interfaces.php");
 require_once("src/factory.class.php");
